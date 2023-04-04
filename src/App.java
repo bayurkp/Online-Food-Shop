@@ -1,11 +1,11 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
     private static String adminUsername = "admin";
     private static String adminPass = "admin";
     private static String custUsername = "customer";
     private static String custPass = "customer";
-    
+
     public static void login() {
         Scanner sc = new Scanner(System.in);
 
@@ -29,16 +29,33 @@ public class App {
         sc.close();
     }
 
-    public static void custMenu() {
-        System.out.println("Selamat datang kembali, Customer!");
-    }
-
     public static void adminMenu() {
         System.out.println("Selamat datang kembali, Admin!");
+        System.out.println("1. Lihat restaurant");
+        System.out.println("2. Tambah restaurant");
+        System.out.println("3. Hapus restaurant");
+        System.out.println("4. Kembali ke menu Login");
+        
+        System.out.print("(Mohon masukkan kode angka untuk melanjutkan)\n> ");
+        // int menu = Input.getInteger();
     }
 
+    public static void custMenu() {
+        System.out.println("Selamat datang kembali, Customer!");
+        System.out.println("1. Lihat restaurant");
+        System.out.println("2. Buat pesanan");
+        System.out.println("3. Lihat pesanan");
+        System.out.println("4. Kembali ke menu Login");
+        
+        System.out.print("(Mohon masukkan kode angka untuk melanjutkan)\n> ");
+        // int menu = Input.getInteger();
+    }
 
     public static void main(String[] args) {
-        login();
+        Restaurant restaurant = new Restaurant("Beverly", "Jakarta");
+        restaurant.addFood("Ayam Bakar", "10000");
+        restaurant.addFood("Gurami Goreng", "20000");
+
+        System.out.println(restaurant.getFoods().get(0).get(0));
     }
 }
