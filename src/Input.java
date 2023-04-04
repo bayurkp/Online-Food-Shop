@@ -3,37 +3,34 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Input {
+    private static final Scanner sc = new Scanner(System.in);
     public static int getInteger() {
-        Scanner sc = new Scanner(System.in);
         int num;
         while (true) {
             try {
                 num = sc.nextInt();
+                sc.nextLine();
                 break;
             } catch (InputMismatchException e) {
                 System.out.print("Input invalid. Mohon ulangi.\n> ");
                 sc.nextLine();
             }
         }
-
-        sc.close();
         return num;
     }
 
     public static double getDouble() {
-        Scanner sc = new Scanner(System.in);
         double num;
         while (true) {
             try {
                 num = sc.nextDouble();
+                sc.nextLine();
                 break;
             } catch (InputMismatchException e) {
                 System.out.print("Input invalid. Mohon ulangi.\n> ");
                 sc.nextLine();
             }
         }
-
-        sc.close();
         return num;
     }
 
@@ -44,8 +41,13 @@ public class Input {
         return password;
     }
 
+    public static String getString() {
+        String text = sc.nextLine();
+        return text;
+    }
+
     public static void main(String[] args) {
-        double num = getDouble();
+        String num = getString();
         System.out.println(num);
     }
 }
