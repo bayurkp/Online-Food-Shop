@@ -9,11 +9,9 @@ public class App {
     private static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
 
     public static void login() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Username > ");
-        String username = sc.nextLine();
-        System.out.print("Password > ");
+        System.out.print("Username\n> ");
+        String username = Input.getString();
+        System.out.print("Password\n> ");
         String password = Input.getPassword();
 
         System.out.println(password);
@@ -27,8 +25,6 @@ public class App {
 
             login();
         }
-
-        sc.close();
     }
 
     public static void adminMenu() {
