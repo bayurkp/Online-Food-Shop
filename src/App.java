@@ -4,23 +4,27 @@ public class App {
     public static final String NORMAL = "\033[0;0m";
     public static final String BOLD = "\033[0;1m";
 
+    // Method untuk membersihkan teks pada terminal
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
 
+    // Method pengenalan aplikasi
     public static void intro() {
         clearScreen();
-        System.out.println(BOLD + "\nFast-food" + NORMAL);
+        System.out.println(BOLD + "\nOn-Food!" + NORMAL);
         System.out.println("---------------");
-        System.out.println("Pilihan terbaik untuk keluarga");
+        System.out.println("Pilihan terbaik untuk perut Anda");
         System.out.print("\nTekan enter untuk melanjutkan....");
         Input.getString();
     }
 
+    // Method login
     public static void login() {
         clearScreen();
-        System.out.println(BOLD + "LOGIN" + NORMAL);
+        System.out.println(BOLD + "\nLogin" + NORMAL);
+        System.out.println("---------------");
         System.out.print("Username\n> ");
         String username = Input.getString();
         System.out.print("Password\n> ");

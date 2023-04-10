@@ -12,8 +12,10 @@ public class Admin {
         return adminPass;
     }
 
+    // Method menu untuk admin
     public static void menu() {
-        System.out.println("Selamat datang kembali, Admin!");
+        System.out.println(App.BOLD + "\nSelamat datang, Admin!" + App.NORMAL);
+        System.out.println("---------------");
         System.out.println("1. Lihat restaurant");
         System.out.println("2. Tambah restaurant");
         System.out.println("3. Hapus restaurant");

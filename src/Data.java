@@ -1,33 +1,34 @@
 import java.util.*;
 
 public class Data {
+    // Array untuk menyimpan data restaurant
     private static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
         
+    // Method untuk menambahkan data restaurant
     public static void addRestaurant() {
-        // System.out.println("Tambah restaurant");
-        // System.out.print("Masukkan nama restaurant\n> ");
-        // String restaurantName = Input.getString();
-        // System.out.print("Masukkan alamat restaurant\n> ");
-        // String restaurantAddress = Input.getString();
+        System.out.println(App.BOLD + "Tambah Restaurant\n" + App.NORMAL);
+        System.out.println("---------------");
+        System.out.print("Masukkan nama restaurant\n> ");
+        String restaurantName = Input.getString();
+        System.out.print("Masukkan alamat restaurant\n> ");
+        String restaurantAddress = Input.getString();
+        App.clearScreen();
 
-        // Restaurant restaurant = new Restaurant(restaurantName, restaurantAddress);
-        Restaurant restaurant = new Restaurant("Starfood", "Surabaya");
-        
-        // System.out.printf("Restaurant %s - %s\n", restaurantName, restaurantAddress);
-        System.out.println("1. Makanan");
-        System.out.println("2. Minuman");
-
-        System.out.print("(Mohon masukkan kode angka untuk melanjutkan)\n> ");
+        Restaurant restaurant = new Restaurant(restaurantName, restaurantAddress);
         int select = 0;
-        do {
-            select = Input.getInteger();
-            if (select != 1 && select != 2) System.out.print("Input invalid. Mohon ulangi\n> ");
-            else break;
-        } while (select != 1 && select != 2);
-
         int confirm = 0;
         do {
-            System.out.print("Apakah Anda yakin untuk menambahkan menu?\n(1 untuk lanjutkan dan 0 untuk kembali)\n> ");
+            System.out.printf(App.BOLD + "Restaurant %s - %s\n" + App.NORMAL, restaurantName, restaurantAddress);
+            System.out.println("---------------");
+            System.out.println("1. Makanan");
+            System.out.println("2. Minuman");
+            System.out.print("(Mohon masukkan kode angka untuk melanjutkan)\n> ");
+            do {
+                select = Input.getInteger();
+                if (select != 1 && select != 2) System.out.print("Input invalid. Mohon ulangi\n> ");
+            } while (select != 1 && select != 2);
+
+            System.out.print("Apakah Anda yakin untuk menambahkan menu?\n(1 untuk melanjutkan dan 0 untuk tidak)\n> ");
             do {
                 confirm = Input.getInteger();
                 if (confirm == 1 && confirm == 0) System.out.print("Input invalid. Mohon ulangi\n> ");
@@ -45,6 +46,8 @@ public class Data {
                 case 2:
                     restaurant.addDrinks(menuName, menuPrice);
                     break;
+                default:
+                    System.out.print("Input invalid. Mohon ulangi\n> ");
             }
         } while (confirm == 0);
         

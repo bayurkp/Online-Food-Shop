@@ -12,8 +12,11 @@ public class Customer {
         return custPass;
     }
 
+    // Method menu untuk customer
     public static void menu() {
-        System.out.println("Selamat datang kembali, Customer!");
+        App.clearScreen();
+        System.out.println(App.BOLD + "\nSelamat datang, Customer!" + App.NORMAL);
+        System.out.println("---------------");
         System.out.println("1. Lihat restaurant");
         System.out.println("2. Buat pesanan");
         System.out.println("3. Lihat pesanan");
