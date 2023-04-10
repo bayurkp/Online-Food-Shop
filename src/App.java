@@ -12,14 +12,18 @@ public class App {
 
     // Method untuk mengubah teks menjadi format capitalize each word
     public static String capitalizeWord(String text){  
-    String words[] = text.split("\\s");  
-    String capitalizeWord = "";
-    for (String w:words){  
-        String first = w.substring(0,1);  
-        String afterfirst = w.substring(1);  
-        capitalizeWord += first.toUpperCase() + afterfirst + " ";  
-    }  
-    return capitalizeWord.trim();  
+        char[] chars = text.toLowerCase().toCharArray();
+        boolean found = false;
+        for (int i = 0; i < chars.length; i++) {
+            if (!found && Character.isLetter(chars[i])) {
+                chars[i] = Character.toUpperCase(chars[i]);
+                found = true;
+            } else if (Character.isWhitespace(chars[i]) || chars[i] == '.' || chars[i] == '\'') {
+                found = false;
+            }
+        }
+        
+        return String.valueOf(chars); 
 }  
 
     // Method pengenalan aplikasi
@@ -58,5 +62,7 @@ public class App {
         // System.out.println(Data.getRestaurants().get(0).getAddress());
         // System.out.println(Data.getRestaurants().get(0).getFoods());
         // System.out.println(Data.getRestaurants().get(0).getDrinks());
+
+        System.out.println(capitalizeWord("Satu DUA TIgA"));
     }
 }
