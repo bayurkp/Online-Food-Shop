@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Data {
     // Array untuk menyimpan data restaurant
-    private static ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
+    private static ArrayList<Restaurant> restaurants = new ArrayList<>();
         
     // Method untuk menambahkan data restaurant
     public static void addRestaurant() {
@@ -76,8 +76,13 @@ public class Data {
 
         if (restaurants.size() == 0) {
             System.out.println("Tidak ada restaurant teregistrasi.");
+            System.out.print("*(Tekan enter untuk melanjutkan....)");
+            Input.getString();
             return;
         }
+
+        System.out.println(restaurants.get(0));
+        System.out.println(restaurants.get(1));
 
         for (int i = 0; i < restaurants.size(); i++) {
             String restaurantName = restaurants.get(i).getName();
@@ -95,27 +100,36 @@ public class Data {
             } else if (idRestaurant < 0 && idRestaurant > restaurants.size()) {
                 System.out.print("Input invalid. Mohon ulangi\n> ");
             }
-        } while (idRestaurant >= 0 && idRestaurant <= restaurants.size());
+        } while (idRestaurant < 0 && idRestaurant > restaurants.size());
 
-        ArrayList<ArrayList<String>> foods = new ArrayList<ArrayList<String>>();
-        ArrayList<ArrayList<String>> drinks = new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<String>> foods = new ArrayList<>();
+        ArrayList<ArrayList<String>> drinks = new ArrayList<>();
 
         foods = restaurants.get(idRestaurant - 1).getFoods();
         drinks = restaurants.get(idRestaurant - 1).getDrinks();
         System.out.println(App.BOLD + "\nMenu Makanan" + App.NORMAL);
         System.out.println("---------------");
         for (int i = 0; i < foods.size(); i++) {
-            System.out.printf("%d. %s\t\t%s", i + 1, foods.get(i), foods.get(i).get(0));
+            System.out.printf("%d. %s\t\t%s\n", i + 1, foods.get(i), foods.get(i).get(0));
         }
 
         System.out.println(App.BOLD + "\nMenu Minuman" + App.NORMAL);
         System.out.println("---------------");
         for (int i = 0; i < drinks.size(); i++) {
-            System.out.printf("%d. %s\t\t%s", i + 1, drinks.get(i), drinks.get(i).get(0));
+            System.out.printf("%d. %s\t\t%s\n", i + 1, drinks.get(i), drinks.get(i).get(0));
         }
+        Input.getString();
     }
 
     public static ArrayList<Restaurant> getRestaurants() {
         return restaurants;
+    }
+
+    public static void main(String[] args) {
+        Restaurant tes1 = new Restaurant("hehe", "hehe");
+        Restaurant tes2 = new Restaurant("xixi", "xoxo");
+        restaurants.add(tes1);
+        restaurants.add(tes2);
+        showRestaurant();
     }
 }

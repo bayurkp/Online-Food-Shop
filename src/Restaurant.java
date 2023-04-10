@@ -1,30 +1,30 @@
 import java.util.ArrayList;
 
 public class Restaurant {
-    private static String name;
-    private static String address;
-    private static ArrayList<ArrayList<String>> foods = new ArrayList<ArrayList<String>>();
-    private static ArrayList<ArrayList<String>> drinks = new ArrayList<ArrayList<String>>();
+    private String name;
+    private String address;
+    private ArrayList<ArrayList<String>> foods = new ArrayList<>();
+    private ArrayList<ArrayList<String>> drinks = new ArrayList<>();
 
-    public Restaurant(String nameArg, String addressArg) {
-        name = nameArg;
-        address = addressArg;
+    public Restaurant(String name, String address) {
+        this.name = name;
+        this.address = address;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public String getAddress() {
-        return address;
+        return this.address;
     }
 
     public ArrayList<ArrayList<String>> getFoods() {
-        return foods;
+        return this.foods;
     }
 
     public ArrayList<ArrayList<String>> getDrinks() {
-        return drinks;
+        return this.drinks;
     }
 
     public void addFood(String name, String price) {
@@ -32,7 +32,7 @@ public class Restaurant {
         food.add(name);
         food.add(price);
 
-        foods.add(food);
+        this.foods.add(food);
     }
 
     public void addDrinks(String name, String price) {
@@ -40,6 +40,6 @@ public class Restaurant {
         drink.add(name);
         drink.add(price);
 
-        drinks.add(drink);
+        this.drinks.add(drink);
     }
 }

@@ -3,7 +3,7 @@
 public class App {
     public static final String NORMAL = "\033[0;0m";
     public static final String BOLD = "\033[0;1m";
-
+    
     // Method untuk membersihkan teks pada terminal
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -32,7 +32,7 @@ public class App {
         System.out.println(BOLD + "\nOn-Food!" + NORMAL);
         System.out.println("---------------");
         System.out.println("Pilihan terbaik untuk perut Anda");
-        System.out.print("\nTekan enter untuk melanjutkan....");
+        System.out.print("*(Tekan enter untuk melanjutkan....)");
         Input.getString();
         login();
     }
@@ -57,6 +57,7 @@ public class App {
     }
 
     public static void main(String[] args) {
+        intro();
         // Data.addRestaurant();
         // System.out.println(Data.getRestaurants().get(0).getName());
         // System.out.println(Data.getRestaurants().get(0).getAddress());
