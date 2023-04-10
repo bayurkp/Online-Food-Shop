@@ -14,6 +14,7 @@ public class Admin {
 
     // Method menu untuk admin
     public static void menu() {
+        App.clearScreen();
         System.out.println(App.BOLD + "\nSelamat datang, Admin!" + App.NORMAL);
         System.out.println("---------------");
         System.out.println("1. Lihat restaurant");

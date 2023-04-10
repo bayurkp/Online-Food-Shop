@@ -10,6 +10,18 @@ public class App {
         System.out.flush();
     }
 
+    // Method untuk mengubah teks menjadi format capitalize each word
+    public static String capitalizeWord(String text){  
+    String words[] = text.split("\\s");  
+    String capitalizeWord = "";
+    for (String w:words){  
+        String first = w.substring(0,1);  
+        String afterfirst = w.substring(1);  
+        capitalizeWord += first.toUpperCase() + afterfirst + " ";  
+    }  
+    return capitalizeWord.trim();  
+}  
+
     // Method pengenalan aplikasi
     public static void intro() {
         clearScreen();
@@ -18,6 +30,7 @@ public class App {
         System.out.println("Pilihan terbaik untuk perut Anda");
         System.out.print("\nTekan enter untuk melanjutkan....");
         Input.getString();
+        login();
     }
 
     // Method login
@@ -40,6 +53,10 @@ public class App {
     }
 
     public static void main(String[] args) {
-        intro();
+        // Data.addRestaurant();
+        // System.out.println(Data.getRestaurants().get(0).getName());
+        // System.out.println(Data.getRestaurants().get(0).getAddress());
+        // System.out.println(Data.getRestaurants().get(0).getFoods());
+        // System.out.println(Data.getRestaurants().get(0).getDrinks());
     }
 }
