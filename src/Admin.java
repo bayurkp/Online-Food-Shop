@@ -31,7 +31,7 @@ public class Admin {
         
         switch (select) {
             case 1:
-                // showRestaurant();
+                Data.showRestaurant();
                 break;
             case 2:
                 Data.addRestaurant();
@@ -45,6 +45,8 @@ public class Admin {
             default:
                 break;
         }
+
+        menu();
     }
 
 }

@@ -62,7 +62,5 @@ public class App {
         // System.out.println(Data.getRestaurants().get(0).getAddress());
         // System.out.println(Data.getRestaurants().get(0).getFoods());
         // System.out.println(Data.getRestaurants().get(0).getDrinks());
-
-        System.out.println(capitalizeWord("Satu DUA TIgA"));
     }
 }
