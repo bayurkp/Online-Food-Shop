@@ -1,5 +1,3 @@
-// import java.util.*;
-
 public class Customer {
     private static String custUsername = "customer";
     private static String custPass = "customer";
@@ -42,10 +40,33 @@ public class Customer {
     }
 
     public static void addOrder() {
-        
+        int idRestaurant = Data.showRestaurant();
+        if (idRestaurant == 0) {
+            return;
+        }
+
+        // Restaurant restaurant = new Restaurant(Data.getRestaurants().get(idRestaurant - 1));
+
+        System.out.println(App.BOLD + "Tambahkan Pesanan" + App.NORMAL);
+        System.out.println("---------------");
+        System.out.println("Mohon masukkan ID menu.");
+        System.out.print("*(Masukkan 0 untuk kembali)\n> ");
+
+        String idMenu = Input.getString();
+        if (idMenu.equals("0")) {
+            menu();
+            return;
+        }
+        System.out.println(Data.getRestaurants().get(idRestaurant - 1).getName());
     }
 
     public static void main(String[] args) {
-        menu();
+        Restaurant a = new Restaurant("1", "1");
+        Restaurant b = new Restaurant("2", "2");
+        Restaurant c = new Restaurant("3", "3");
+        Data.addRestaurants(a);
+        Data.addRestaurants(b);
+        Data.addRestaurants(c);
+        addOrder();
     }
 }

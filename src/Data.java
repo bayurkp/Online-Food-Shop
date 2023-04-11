@@ -71,7 +71,7 @@ public class Data {
             }        
         }
 
-        System.out.println("\n*(Masukkan apapun untuk lanjutkan)");
+        System.out.print("\n*(Masukkan apapun untuk lanjutkan)");
         Input.getAnyKey();
         return idRestaurant;
     }
