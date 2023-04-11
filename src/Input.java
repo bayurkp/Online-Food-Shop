@@ -92,6 +92,10 @@ public class Input {
         return text;
     }
 
+    public static void getAnyKey() {
+        sc.nextLine();
+    }
+
     public static void main(String[] args) {
         String test = getString();
         System.out.println(test);
