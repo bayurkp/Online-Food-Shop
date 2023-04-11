@@ -1,8 +1,11 @@
 import java.util.*;
 
 public class Data {
-    // Array untuk menyimpan data restaurant
+    // Array list untuk menyimpan data restaurant
     private static ArrayList<Restaurant> restaurants = new ArrayList<>();
+    
+    // Array list untuk menyimpan data pemesanan
+    private static ArrayList<Order> orders = new ArrayList<>();
 
     // Method untuk menampilkan data restaruant
     public static void showRestaurant() {
@@ -80,5 +83,17 @@ public class Data {
 
     public static void removeRestaurant(int idRestaurant) {
         restaurants.remove(idRestaurant);
+    }
+
+    public static ArrayList<Order> getOrders() {
+        return orders;
+    }
+
+    public static void addOrder(Order order) {
+        orders.add(order);
+    }
+
+    public static void removeOrder(int idOrder) {
+        orders.remove(idOrder);
     }
 }
