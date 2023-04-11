@@ -54,7 +54,7 @@ public class Data {
             System.out.println("Tidak ada makanan.");
         } else {
             for (int i = 0; i < foods.size(); i++) {
-                System.out.printf("%d. %s\t\tRp. %s\n", i + 1, foods.get(i).get(0), foods.get(i).get(1));
+                System.out.printf("%dF. %s\t\tRp. %s\n", i + 1, foods.get(i).get(0), foods.get(i).get(1));
             }
         }
 
@@ -65,7 +65,7 @@ public class Data {
             System.out.println("Tidak ada minuman.");
         } else {
             for (int i = 0; i < drinks.size(); i++) {
-                System.out.printf("%d. %s\t\tRp. %s\n", i + 1, drinks.get(i).get(0), drinks.get(i).get(1));
+                System.out.printf("%dD. %s\t\tRp. %s\n", i + 1, drinks.get(i).get(0), drinks.get(i).get(1));
             }        
         }
         Input.getString();
