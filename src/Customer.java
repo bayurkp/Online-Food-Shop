@@ -45,8 +45,6 @@ public class Customer {
             return;
         }
 
-        // Restaurant restaurant = new Restaurant(Data.getRestaurants().get(idRestaurant - 1));
-
         System.out.println(App.BOLD + "Tambahkan Pesanan" + App.NORMAL);
         System.out.println("---------------");
         System.out.println("Mohon masukkan ID menu.");
