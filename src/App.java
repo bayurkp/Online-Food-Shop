@@ -33,7 +33,7 @@ public class App {
         System.out.println("---------------");
         System.out.println("Pilihan terbaik untuk perut Anda");
         System.out.print("*(Tekan enter untuk melanjutkan....)");
-        Input.getString();
+        Input.getAnyKey();
         login();
     }
 

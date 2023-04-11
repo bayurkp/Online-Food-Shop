@@ -105,7 +105,7 @@ public class Admin {
         if (Data.getRestaurants().size() == 0) {
             System.out.println("Tidak ada restaurant teregistrasi.");
             System.out.print("*(Tekan enter untuk melanjutkan....)");
-            Input.getString();
+            Input.getAnyKey();
             menu();
         }
 

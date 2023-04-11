@@ -17,7 +17,7 @@ public class Data {
         if (restaurants.size() == 0) {
             System.out.println("Tidak ada restaurant teregistrasi.");
             System.out.print("*(Tekan enter untuk melanjutkan....)");
-            Input.getString();
+            Input.getAnyKey();
             return;
         }
 
@@ -70,7 +70,7 @@ public class Data {
                 System.out.printf("%dD. %s\t\tRp. %s\n", i + 1, drinks.get(i).get(0), drinks.get(i).get(1));
             }        
         }
-        Input.getString();
+        Input.getAnyKey();
     }
 
     public static ArrayList<Restaurant> getRestaurants() {
