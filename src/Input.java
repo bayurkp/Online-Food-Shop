@@ -19,6 +19,25 @@ public class Input {
         return num;
     }
 
+    public static int getInteger(int min, int max) {
+        int num;
+        while (true) {
+            try {
+                num = sc.nextInt();
+                sc.nextLine();
+                if (num >= min && num <= max) {
+                    break;
+                } else {
+                    System.out.print("Input invalid. Mohon ulangi.\n> ");
+                }
+            } catch (InputMismatchException e) {
+                System.out.print("Input invalid. Mohon ulangi.\n> ");
+                sc.nextLine();
+            }
+        }
+        return num;
+    }
+
     public static double getDouble() {
         double num;
         while (true) {
@@ -26,6 +45,25 @@ public class Input {
                 num = sc.nextDouble();
                 sc.nextLine();
                 break;
+            } catch (InputMismatchException e) {
+                System.out.print("Input invalid. Mohon ulangi.\n> ");
+                sc.nextLine();
+            }
+        }
+        return num;
+    }
+
+    public static double getDouble(double min, double max) {
+        double num;
+        while (true) {
+            try {
+                num = sc.nextDouble();
+                sc.nextLine();
+                if (num >= min && num <= max) {
+                    break;
+                } else {
+                    System.out.print("Input invalid. Mohon ulangi.\n> ");
+                }
             } catch (InputMismatchException e) {
                 System.out.print("Input invalid. Mohon ulangi.\n> ");
                 sc.nextLine();
@@ -47,7 +85,7 @@ public class Input {
     }
 
     public static void main(String[] args) {
-        String num = getString();
+        double num = getDouble(0, 1);
         System.out.println(num);
     }
 }
