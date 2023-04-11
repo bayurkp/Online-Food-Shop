@@ -35,7 +35,7 @@ public class Restaurant {
         this.foods.add(food);
     }
 
-    public void addDrinks(String name, String price) {
+    public void addDrink(String name, String price) {
         ArrayList<String> drink = new ArrayList<String>();
         drink.add(name);
         drink.add(price);

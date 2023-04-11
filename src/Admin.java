@@ -95,7 +95,7 @@ public class Admin {
                     restaurant.addFood(menuName, menuPrice);
                     break;
                 case 2:
-                    restaurant.addDrinks(menuName, menuPrice);
+                    restaurant.addDrink(menuName, menuPrice);
                     break;
                 default:
                     System.out.print("Input invalid. Mohon ulangi\n> ");
