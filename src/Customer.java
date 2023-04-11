@@ -47,9 +47,17 @@ public class Customer {
 
         System.out.println(App.BOLD + "\nTambahkan Pesanan" + App.NORMAL);
         System.out.println("---------------");
+
+        System.out.println("Mohon masukkan jarak restoran ke lokasi antar (dalam KM).");
+        System.out.print("*(Masukkan 0 untuk kembali)\n> ");
+        Double distance = Input.getDouble(0, Double.MAX_VALUE);
+        if (distance == 0.0) {
+            menu();
+            return;
+        }
+
         System.out.println("Mohon masukkan ID menu.");
         System.out.print("*(Masukkan 0 untuk kembali)\n> ");
-
         String idMenu;
         int numberMenu;
         String categoryMenu;
@@ -84,14 +92,6 @@ public class Customer {
             return;
         }
 
-        System.out.println("Mohon masukkan jarak ke lokasi antar (dalam KM).");
-        System.out.print("*(Masukkan 0 untuk kembali)\n> ");
-        Double distance = Input.getDouble(0, Double.MAX_VALUE);
-        if (distance == 0.0) {
-            menu();
-            return;
-        }
-
         if (isFood) {
             Data.addOrder(new Order(
                     Data.getRestaurants().get(idRestaurant - 1).getName(),
@@ -113,6 +113,8 @@ public class Customer {
                     quantity,
                     distance));
         }
+
+        // Data.showOrder();
     }
 
     public static boolean idMenuValidation(String idMenu) {
@@ -144,8 +146,6 @@ public class Customer {
         // Data.addRestaurants(b);
         // Data.addRestaurants(c);
         addOrder();
-        System.out.println(Data.getOrders().get(0).getMenuName());
-        System.out.println(Data.getOrders().get(0).getMenuPrice());
-        System.out.println(Data.getOrders().get(0).getTotalPrice());
+        Data.showOrder();
     }
 }

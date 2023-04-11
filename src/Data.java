@@ -3,14 +3,14 @@ import java.util.*;
 public class Data {
     // Array list untuk menyimpan data restaurant
     private static ArrayList<Restaurant> restaurants = new ArrayList<>();
-    
+
     // Array list untuk menyimpan data pemesanan
     private static ArrayList<Order> orders = new ArrayList<>();
 
     // Method untuk menampilkan data restaruant
     public static int showRestaurant() {
         App.clearScreen();
-        System.out.println(App.BOLD + "\nTampilkan Restaurant" + App.NORMAL);
+        System.out.println(App.BOLD + "\nRestaurant" + App.NORMAL);
         System.out.println("---------------");
 
         // Jika belum ada restaruant yang ditambahkan maka akan tampil teks berikut
@@ -28,7 +28,8 @@ public class Data {
             System.out.printf("%d. %s-%s\n", i + 1, restaurantName, restaurantAddress);
         }
 
-        // Menerima input untuk memilih detail menu dari restaurant dengan ID yang diinput
+        // Menerima input untuk memilih detail menu dari restaurant dengan ID yang
+        // diinput
         System.out.println("Masukkan ID restaurant untuk detail menu");
         System.out.print("*(masukkan 0 untuk kembali)\n> ");
         int idRestaurant = 0;
@@ -49,7 +50,8 @@ public class Data {
 
         // Menampilkan daftar menu makanan dari restaurant yang dipilih
         App.clearScreen();
-        System.out.printf(App.BOLD + "\n%s-%s" + App.NORMAL, restaurants.get(idRestaurant - 1).getName(), restaurants.get(idRestaurant - 1).getAddress());
+        System.out.printf(App.BOLD + "\n%s-%s" + App.NORMAL, restaurants.get(idRestaurant - 1).getName(),
+                restaurants.get(idRestaurant - 1).getAddress());
         System.out.println(App.BOLD + "\nMenu Makanan" + App.NORMAL);
         System.out.println("---------------");
         if (foods.size() == 0) {
@@ -68,7 +70,7 @@ public class Data {
         } else {
             for (int i = 0; i < drinks.size(); i++) {
                 System.out.printf("%d-D. %s\t\tRp. %s\n", i + 1, drinks.get(i).get(0), drinks.get(i).get(1));
-            }        
+            }
         }
 
         System.out.print("\n*(Masukkan apapun untuk lanjutkan)");
@@ -86,6 +88,41 @@ public class Data {
 
     public static void removeRestaurant(int idRestaurant) {
         restaurants.remove(idRestaurant);
+    }
+
+    public static void showOrder() {
+        App.clearScreen();
+        System.out.println(App.BOLD + "\nPesanan" + App.NORMAL);
+        System.out.println("---------------");
+
+        if (restaurants.size() == 0) {
+            System.out.println("Tidak ada pesanan teregistrasi.");
+            System.out.print("*(Tekan enter untuk melanjutkan....)");
+            Input.getAnyKey();
+            return;
+        }
+
+        int id = 1;
+        double totalOrderListPrice = 0.0;
+        for (Order order : orders) {
+            Double totalOrderPrice = 0.0;
+            if (order.getDistance() <= 5) {
+                totalOrderPrice = order.getMenuPrice() * order.getQuantity() + 1500 * 5;
+            } else {
+                totalOrderPrice = order.getMenuPrice() * order.getQuantity() + 1500 * order.getDistance();
+            }
+            System.out.printf("%d. %s-%s\t\t : %s\t\tRp. %.2f %dx \t\t : Rp. %.2f\n",
+                    id,
+                    order.getResaturantName(),
+                    order.getResaturantAddress(),
+                    order.getMenuName(),
+                    order.getMenuPrice(),
+                    order.getQuantity(),
+                    totalOrderPrice);
+            totalOrderListPrice += totalOrderPrice;
+            id++;
+        }
+        System.out.printf("%s\nTotal : Rp. %.2f%s\n", App.BOLD, totalOrderListPrice, App.NORMAL);
     }
 
     public static ArrayList<Order> getOrders() {
