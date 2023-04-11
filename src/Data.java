@@ -46,8 +46,7 @@ public class Data {
 
         // Menampilkan daftar menu makanan dari restaurant yang dipilih
         App.clearScreen();
-        System.out.printf(App.BOLD + "\n%s-%s\n" + App.NORMAL, restaurants.get(idRestaurant - 1).getName(), restaurants.get(idRestaurant - 1).getAddress());
-        System.out.println("---------------");
+        System.out.printf(App.BOLD + "\n%s-%s" + App.NORMAL, restaurants.get(idRestaurant - 1).getName(), restaurants.get(idRestaurant - 1).getAddress());
         System.out.println(App.BOLD + "\nMenu Makanan" + App.NORMAL);
         System.out.println("---------------");
         if (foods.size() == 0) {
@@ -77,5 +76,9 @@ public class Data {
 
     public static void addRestaurants(Restaurant restaurant) {
         restaurants.add(restaurant);
+    }
+
+    public static void removeRestaurant(int idRestaurant) {
+        restaurants.remove(idRestaurant);
     }
 }
