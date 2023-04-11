@@ -11,6 +11,17 @@ public class Restaurant {
         this.address = address;
     }
 
+    public Restaurant(Restaurant restaurant) {
+        this.copy(restaurant);
+    }
+
+    public void copy(Restaurant restaurant) {
+        this.name = restaurant.getName();
+        this.address = restaurant.getAddress();
+        this.foods = restaurant.getFoods();
+        this.drinks = restaurant.getDrinks();
+    }
+
     public String getName() {
         return this.name;
     }
