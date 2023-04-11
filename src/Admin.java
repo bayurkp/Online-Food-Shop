@@ -20,16 +20,10 @@ public class Admin {
         System.out.println("1. Lihat restaurant");
         System.out.println("2. Tambah restaurant");
         System.out.println("3. Hapus restaurant");
-        System.out.println("4. Kembali ke menu Login");
+        System.out.println("0. Kembali ke menu Login");
         
         System.out.print("*(Mohon masukkan kode angka untuk melanjutkan)\n> ");
-        int select = 0;
-        do {
-            select = Input.getInteger();
-            if (select <= 1 && select >= 4) {
-                System.out.print("Input invalid. Mohon ulangi\n> ");
-            }
-        } while (select <= 1 && select >= 4);
+        int select = Input.getInteger(0, 3);
         
         switch (select) {
             case 1:
@@ -41,10 +35,8 @@ public class Admin {
             case 3:
                 removeRestaurant();
                 break;
-            case 4:
+            case 0:
                 App.login();
-                break;
-            default:
                 break;
         }
 
@@ -75,13 +67,13 @@ public class Admin {
             System.out.println("---------------");
             System.out.println("1. Makanan");
             System.out.println("2. Minuman");
+            System.out.println("0. Kembali");
             System.out.print("*(Mohon masukkan kode angka untuk melanjutkan)\n> ");
-            do {
-                select = Input.getInteger();
-                if (select != 1 && select != 2) {
-                    System.out.print("Input invalid. Mohon ulangi\n> ");
-                }
-            } while (select != 1 && select != 2);
+            select = Input.getInteger(0, 2);
+
+            if (select == 0) {
+                addRestaurant();
+            }
             
             System.out.print("Masukkan nama menu\n> ");
             String menuName = Input.getString();
@@ -97,17 +89,10 @@ public class Admin {
                 case 2:
                     restaurant.addDrink(menuName, menuPrice);
                     break;
-                default:
-                    System.out.print("Input invalid. Mohon ulangi\n> ");
             }
 
             System.out.print("Apakah Anda ingin menambah menu lainnya?\n*(1 untuk melanjutkan dan 0 untuk tidak)\n> ");
-            do {
-                confirm = Input.getInteger();
-                if (confirm != 1 && confirm != 0) {
-                    System.out.print("Input invalid. Mohon ulangi\n> ");
-                }
-            } while (confirm != 1 && confirm != 0);
+            confirm = Input.getInteger(0, 1);
         } while (confirm != 0);
         
         Data.addRestaurants(restaurant);
@@ -121,7 +106,7 @@ public class Admin {
             System.out.println("Tidak ada restaurant teregistrasi.");
             System.out.print("*(Tekan enter untuk melanjutkan....)");
             Input.getString();
-            return;
+            menu();
         }
 
         // Menampilkan menu hapus restaurant
@@ -130,18 +115,13 @@ public class Admin {
         System.out.println("1. Tampilkan Restaurant");
         System.out.println("2. Hapus Restaurant");
         System.out.println("0. Kembali");
- 
+
         System.out.print("*(Mohon masukkan kode angka untuk melanjutkan)\n> ");
-        int select = 0;
-        do {
-            select = Input.getInteger();
-            if (select < 0 || select > 2) {
-                System.out.println("Input invalid. Mohon ulangi\n> ");
-            }
-        } while (select < 0 || select > 2);
+        int select = Input.getInteger(0, 2);
 
         if (select == 0) {
-            return;
+            // Kembali ke menu admin
+            menu();
         } else if (select == 1) {
             // Menampilkan data restaurant
             Data.showRestaurant();
@@ -151,32 +131,20 @@ public class Admin {
             System.out.println(App.BOLD + "\nHapus Restaurant" + App.NORMAL);
             System.out.println("---------------");
             System.out.println("Masukkan ID restaurant untuk menghapus");
-            System.out.print("*(0 untuk kembali)\n> ");
-            int idRestaurant = 0;
-            do {
-                idRestaurant = Input.getInteger();
-                if (idRestaurant < 0 || idRestaurant > Data.getRestaurants().size()) {
-                    System.out.println("Input invalid. Mohon ulangi\n> ");
-                }
-            } while (idRestaurant < 0 || idRestaurant > Data.getRestaurants().size());
+            System.out.print("*(0 untuk kembali ke menu)\n> ");
+            int idRestaurant = Input.getInteger(0, Data.getRestaurants().size());
 
             if (idRestaurant == 0) {
-                return;
+                menu();
             }
             
             // Mengonfirmasi hapus data
             System.out.printf(App.BOLD + "Hapus %s-%s\n" + App.NORMAL, Data.getRestaurants().get(idRestaurant - 1).getName(), Data.getRestaurants().get(idRestaurant - 1).getAddress());
-            System.out.print("Masukkan 1 untuk hapus dan 0 untuk kembali\n> ");
-            int confirm = 0;
-            do {
-                confirm = Input.getInteger();
-                if (confirm != 0 && confirm != 1) {
-                    System.out.println("Input invalid. Mohon ulangi\n> ");
-                }
-            } while (confirm != 0 && confirm != 1);
+            System.out.print("Masukkan 1 untuk hapus dan 0 untuk kembali ke menu\n> ");
+            int confirm = Input.getInteger(0, 1);
 
             if (confirm == 0) {
-                return;
+                menu();
             } else {
                 Data.removeRestaurant(idRestaurant - 1);
             }

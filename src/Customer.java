@@ -20,18 +20,14 @@ public class Customer {
         System.out.println("1. Lihat restaurant");
         System.out.println("2. Buat pesanan");
         System.out.println("3. Lihat pesanan");
-        System.out.println("4. Kembali ke menu Login");
+        System.out.println("0. Kembali ke menu Login");
         
         System.out.print("(Mohon masukkan kode angka untuk melanjutkan)\n> ");
-        int select = 0;
-        do {
-            select = Input.getInteger();
-            if (select <= 1 && select >= 4) System.out.print("Input invalid. Mohon ulangi\n> ");
-        } while (select <= 1 && select >= 4);
+        int select = Input.getInteger(0, 3);
         
         switch (select) {
             case 1:
-                // showRestaurant();
+                Data.showRestaurant();
                 break;
             case 2:
                 // addOrder();
@@ -39,9 +35,13 @@ public class Customer {
             case 3:
                 // showOrder();
                 break;
-            case 4:
+            case 0:
                 App.login();
                 break;
         }
+    }
+
+    public static void main(String[] args) {
+        menu();
     }
 }
