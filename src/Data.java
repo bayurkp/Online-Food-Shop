@@ -8,7 +8,7 @@ public class Data {
     private static ArrayList<Order> orders = new ArrayList<>();
 
     // Method untuk menampilkan data restaruant
-    public static void showRestaurant() {
+    public static int showRestaurant() {
         App.clearScreen();
         System.out.println(App.BOLD + "\nTampilkan Restaurant" + App.NORMAL);
         System.out.println("---------------");
@@ -18,7 +18,7 @@ public class Data {
             System.out.println("Tidak ada restaurant teregistrasi.");
             System.out.print("*(Tekan enter untuk melanjutkan....)");
             Input.getAnyKey();
-            return;
+            return 0;
         }
 
         // Melakukan looping untuk menampilkan daftar restaurant yang ditambahkan
@@ -35,7 +35,7 @@ public class Data {
         do {
             idRestaurant = Input.getInteger();
             if (idRestaurant == 0) {
-                return;
+                return 0;
             } else if (idRestaurant < 0 && idRestaurant >= restaurants.size()) {
                 System.out.print("Input invalid. Mohon ulangi\n> ");
             }
@@ -70,7 +70,10 @@ public class Data {
                 System.out.printf("%dD. %s\t\tRp. %s\n", i + 1, drinks.get(i).get(0), drinks.get(i).get(1));
             }        
         }
+
+        System.out.println("\n*(Masukkan apapun untuk lanjutkan)");
         Input.getAnyKey();
+        return idRestaurant;
     }
 
     public static ArrayList<Restaurant> getRestaurants() {
