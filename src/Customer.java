@@ -41,6 +41,10 @@ public class Customer {
         }
     }
 
+    public static void addOrder() {
+        
+    }
+
     public static void main(String[] args) {
         menu();
     }

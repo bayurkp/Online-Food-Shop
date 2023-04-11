@@ -80,13 +80,21 @@ public class Input {
     }
 
     public static String getString() {
-        String text = sc.nextLine();
+        String text;
+        while (true) {
+            text = sc.nextLine();
+            if (text != null && text.length() != 0) {
+                break;
+            } else {
+                System.out.print("Input invalid. Mohon ulangi.\n> ");
+            }
+        }
         return text;
     }
 
     public static void main(String[] args) {
-        double num = getDouble(0, 1);
-        System.out.println(num);
+        String test = getString();
+        System.out.println(test);
     }
 }
 
