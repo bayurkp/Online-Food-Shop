@@ -94,7 +94,7 @@ public class Data {
         System.out.println(App.BOLD + "\nPesanan" + App.NORMAL);
         System.out.println("---------------");
 
-        if (restaurants.size() == 0) {
+        if (orders.size() == 0) {
             System.out.println("Tidak ada pesanan teregistrasi.");
             System.out.print("*(Tekan enter untuk melanjutkan....)");
             Input.getAnyKey();
@@ -104,7 +104,7 @@ public class Data {
         int id = 1;
         double totalPayment = 0.0;
         for (Order order : orders) {
-            System.out.printf("%d. %s-%s\t\t : %s\t\tRp. %.2f %dx \t\t : Rp. %.2f\n",
+            System.out.printf("\n%d. %s-%s\t\t : %s\t\tRp. %.2f %dx \t\t : Rp. %.2f\n",
                     id,
                     order.getResaturantName(),
                     order.getResaturantAddress(),

@@ -23,7 +23,7 @@ public class Customer {
         System.out.println("0. Kembali ke menu Login");
 
         System.out.print("(Mohon masukkan kode angka untuk melanjutkan)\n> ");
-        int select = Input.getInteger(0, 3);
+        int select = Input.getInteger(0, 5);
 
         switch (select) {
             case 1:
@@ -225,7 +225,7 @@ public class Customer {
         if (totalPayment == 0.0) {
             return;
         }
-        System.out.printf(App.BOLD + "Kode Pembayaran : Rp. %s\n" + App.NORMAL,
+        System.out.printf(App.BOLD + "Kode Pembayaran : %s\n" + App.NORMAL,
                 App.generateRandomString(20));
 
         System.out.print("*(Masukkan 1 untuk bayar dan 0 untuk kembali ke menu)\n> ");
