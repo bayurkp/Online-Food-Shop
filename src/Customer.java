@@ -208,12 +208,12 @@ public class Customer {
         System.out.println(App.BOLD + "\nNota Pesanan" + App.NORMAL);
         System.out.println("---------------");
         System.out.printf(App.BOLD + "\nUsername : %s\n" + App.NORMAL, Customer.getCustUsername());
-        // Double totalPayment = Data.showOrder();
-        // if (totalPayment == 0.0) {
-        // return;
-        // }
-        // System.out.printf(App.BOLD + "Kode Pembayaran : Rp. %s\n" + App.NORMAL,
-        // App.randomString(10));
+        Double totalPayment = Data.showOrder();
+        if (totalPayment == 0.0) {
+            return;
+        }
+        System.out.printf(App.BOLD + "Kode Pembayaran : Rp. %s\n" + App.NORMAL,
+                App.generateRandomString(20));
 
         System.out.print("*(Masukkan 1 untuk bayar dan 0 untuk kembali ke menu)\n> ");
         int pay = Input.getInteger(0, 1);
