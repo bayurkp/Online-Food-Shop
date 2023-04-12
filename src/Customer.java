@@ -39,7 +39,7 @@ public class Customer {
                 // removeOrder();
                 break;
             case 5:
-                // pay();
+                // payOrder();
                 break;
             case 0:
                 App.login();
@@ -187,7 +187,7 @@ public class Customer {
                     Data.getOrders().get(idOrder - 1).getMenuPrice(),
                     Data.getOrders().get(idOrder - 1).getQuantity(),
                     Data.getOrders().get(idOrder - 1).getTotalPrice());
-            System.out.print("Masukkan 1 untuk hapus dan 0 untuk kembali ke menu\n> ");
+            System.out.print("*(Masukkan 1 untuk hapus dan 0 untuk kembali ke menu)\n> ");
             int confirm = Input.getInteger(0, 1);
             if (confirm == 0) {
                 menu();
@@ -201,6 +201,29 @@ public class Customer {
                 return;
             }
         }
+    }
+
+    public static void payOrder() {
+        App.clearScreen();
+        System.out.println(App.BOLD + "\nNota Pesanan" + App.NORMAL);
+        System.out.println("---------------");
+        System.out.printf(App.BOLD + "\nUsername : %s\n" + App.NORMAL, Customer.getCustUsername());
+        // Double totalPayment = Data.showOrder();
+        // System.out.printf(App.BOLD + "Kode Pembayaran : Rp. %s\n" + App.NORMAL,
+        // App.randomString(10));
+
+        System.out.print("*(Masukkan 1 untuk bayar dan 0 untuk kembali ke menu)\n> ");
+        int pay = Input.getInteger(0, 1);
+        if (pay == 0) {
+            menu();
+            return;
+        }
+        System.out.println(
+                App.BOLD + "Terima kasih telah memesan.\nMohon tunggu sampai pesanan Anda sampai." + App.NORMAL);
+
+        menu();
+        return;
+
     }
 
     public static void main(String[] args) {
