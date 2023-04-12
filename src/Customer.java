@@ -234,6 +234,8 @@ public class Customer {
             menu();
             return;
         }
+
+        Data.removeAllOrders();
         System.out.println(
                 App.BOLD + "Terima kasih telah memesan.\nMohon tunggu sampai pesanan Anda sampai." + App.NORMAL);
 
