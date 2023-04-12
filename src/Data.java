@@ -132,4 +132,8 @@ public class Data {
     public static void removeOrder(int idOrder) {
         orders.remove(idOrder);
     }
+
+    public static void removeAllOrders() {
+        orders.removeAll(orders);
+    }
 }
