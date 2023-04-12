@@ -22,10 +22,10 @@ public class Data {
         }
 
         // Melakukan looping untuk menampilkan daftar restoran yang ditambahkan
-        for (int i = 0; i < restaurants.size(); i++) {
-            String restaurantName = restaurants.get(i).getName();
-            String restaurantAddress = restaurants.get(i).getAddress();
-            System.out.printf("%d. %s-%s\n", i + 1, restaurantName, restaurantAddress);
+        int id = 1;
+        for (Restaurant restaurant : restaurants) {
+            System.out.printf("%d. %s-%s\n", id, restaurant.getName(), restaurant.getAddress());
+            id++;
         }
 
         // Menerima input untuk memilih detail menu dari restaurant dengan ID yang
@@ -57,8 +57,11 @@ public class Data {
         if (foods.size() == 0) {
             System.out.println("Tidak ada makanan.");
         } else {
-            for (int i = 0; i < foods.size(); i++) {
-                System.out.printf("%d-F. %s\t\tRp. %s\n", i + 1, foods.get(i).get(0), foods.get(i).get(1));
+            int idFood = 1;
+            for (ArrayList<String> food : restaurants.get(idRestaurant - 1).getFoods()) {
+                System.out.printf("%d-F. %s\t\tRp. %s\n", idFood, food.get(0),
+                        food.get(1));
+                idFood++;
             }
         }
 
@@ -68,8 +71,11 @@ public class Data {
         if (drinks.size() == 0) {
             System.out.println("Tidak ada minuman.");
         } else {
-            for (int i = 0; i < drinks.size(); i++) {
-                System.out.printf("%d-D. %s\t\tRp. %s\n", i + 1, drinks.get(i).get(0), drinks.get(i).get(1));
+            int idDrink = 1;
+            for (ArrayList<String> drink : restaurants.get(idRestaurant - 1).getDrinks()) {
+                System.out.printf("%d-D. %s\t\tRp. %s\n", idDrink, drink.get(0),
+                        drink.get(1));
+                idDrink++;
             }
         }
 

@@ -4,7 +4,7 @@ public class App {
     public static final String NORMAL = "\033[0;0m";
     public static final String BOLD = "\033[0;1m";
 
-    // Method untuk membersihkan teks pada terminal
+    // method untuk membersihkan teks pada terminal
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
