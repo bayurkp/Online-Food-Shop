@@ -1,9 +1,9 @@
-// import java.util.*;
+import java.util.Random;
 
 public class App {
     public static final String NORMAL = "\033[0;0m";
     public static final String BOLD = "\033[0;1m";
-    
+
     // Method untuk membersihkan teks pada terminal
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -11,7 +11,7 @@ public class App {
     }
 
     // Method untuk mengubah teks menjadi format capitalize each word
-    public static String capitalizeWord(String text){  
+    public static String capitalizeWord(String text) {
         char[] chars = text.toLowerCase().toCharArray();
         boolean found = false;
         for (int i = 0; i < chars.length; i++) {
@@ -22,9 +22,24 @@ public class App {
                 found = false;
             }
         }
-        
-        return String.valueOf(chars); 
-}  
+
+        return String.valueOf(chars);
+    }
+
+    // Method generator string acak
+    public static String generateRandomString(int length) {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        StringBuilder sb = new StringBuilder();
+        Random random = new Random();
+
+        for (int i = 0; i < length; i++) {
+            int index = random.nextInt(chars.length());
+            char randomChar = chars.charAt(index);
+            sb.append(randomChar);
+        }
+
+        return sb.toString();
+    }
 
     // Method pengenalan aplikasi
     public static void intro() {

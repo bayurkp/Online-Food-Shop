@@ -209,6 +209,9 @@ public class Customer {
         System.out.println("---------------");
         System.out.printf(App.BOLD + "\nUsername : %s\n" + App.NORMAL, Customer.getCustUsername());
         // Double totalPayment = Data.showOrder();
+        // if (totalPayment == 0.0) {
+        // return;
+        // }
         // System.out.printf(App.BOLD + "Kode Pembayaran : Rp. %s\n" + App.NORMAL,
         // App.randomString(10));
 
