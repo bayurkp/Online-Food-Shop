@@ -1,15 +1,15 @@
 // import java.util.*;
 
 public class Admin {
-    private static String adminUsername = "admin";
-    private static String adminPass = "admin";
+    private static String username = "admin";
+    private static String password = "admin";
 
-    public static String getAdminUsername() {
-        return adminUsername;
+    public static String getUsername() {
+        return username;
     }
 
-    public static String getAdminPass() {
-        return adminPass;
+    public static String getPassword() {
+        return password;
     }
 
     // Method menu untuk admin
@@ -17,14 +17,14 @@ public class Admin {
         App.clearScreen();
         System.out.println(App.BOLD + "\nSelamat datang, Admin!" + App.NORMAL);
         System.out.println("---------------");
-        System.out.println("1. Lihat restaurant");
-        System.out.println("2. Tambah restaurant");
-        System.out.println("3. Hapus restaurant");
+        System.out.println("1. Lihat restoran");
+        System.out.println("2. Tambah restoran");
+        System.out.println("3. Hapus restoran");
         System.out.println("0. Kembali ke menu Login");
-        
+
         System.out.print("*(Mohon masukkan kode angka untuk melanjutkan)\n> ");
         int select = Input.getInteger(0, 3);
-        
+
         switch (select) {
             case 1:
                 Data.showRestaurant();
@@ -37,23 +37,23 @@ public class Admin {
                 break;
             case 0:
                 App.login();
-                break;
+                return;
         }
 
         menu();
     }
 
-    // Method untuk menambahkan data restaurant
+    // Method untuk menambahkan data restoran
     public static void addRestaurant() {
         App.clearScreen();
-        System.out.println(App.BOLD + "\nTambah Restaurant" + App.NORMAL);
+        System.out.println(App.BOLD + "\nTambah Restoran" + App.NORMAL);
         System.out.println("---------------");
 
-        System.out.print("Masukkan nama restaurant\n> ");
+        System.out.print("Masukkan nama restoran\n> ");
         String restaurantName = Input.getString();
         restaurantName = App.capitalizeWord(restaurantName);
 
-        System.out.print("Masukkan alamat restaurant\n> ");
+        System.out.print("Masukkan alamat restoran\n> ");
         String restaurantAddress = Input.getString();
         restaurantAddress = App.capitalizeWord(restaurantAddress);
         App.clearScreen();
@@ -74,7 +74,7 @@ public class Admin {
             if (select == 0) {
                 addRestaurant();
             }
-            
+
             System.out.print("Masukkan nama menu\n> ");
             String menuName = Input.getString();
             menuName = App.capitalizeWord(menuName);
@@ -94,26 +94,29 @@ public class Admin {
             System.out.print("Apakah Anda ingin menambah menu lainnya?\n*(1 untuk melanjutkan dan 0 untuk tidak)\n> ");
             confirm = Input.getInteger(0, 1);
         } while (confirm != 0);
-        
+
         Data.addRestaurants(restaurant);
+        System.out.println("Pesanan berhasil ditambahkan.");
+        System.out.print("*(Masukkan apapun untuk melanjutkan)");
+        Input.getAnyKey();
     }
 
-    // Method untuk mengahpus data restaurant 
+    // Method untuk mengahpus data restoran
     public static void removeRestaurant() {
         App.clearScreen();
-        // Cek apakah data restaurant dimiliki oleh list restaurants 
+        // Cek apakah data restoran dimiliki oleh list restaurants
         if (Data.getRestaurants().size() == 0) {
-            System.out.println("Tidak ada restaurant teregistrasi.");
+            System.out.println("Tidak ada restoran teregistrasi.");
             System.out.print("*(Tekan enter untuk melanjutkan....)");
             Input.getAnyKey();
             menu();
         }
 
-        // Menampilkan menu hapus restaurant
-        System.out.println(App.BOLD + "\nHapus Restaurant" + App.NORMAL);
+        // Menampilkan menu hapus restoran
+        System.out.println(App.BOLD + "\nHapus Restoran" + App.NORMAL);
         System.out.println("---------------");
-        System.out.println("1. Tampilkan Restaurant");
-        System.out.println("2. Hapus Restaurant");
+        System.out.println("1. Tampilkan Restoran");
+        System.out.println("2. Hapus Restoran");
         System.out.println("0. Kembali");
 
         System.out.print("*(Mohon masukkan kode angka untuk melanjutkan)\n> ");
@@ -123,30 +126,35 @@ public class Admin {
             // Kembali ke menu admin
             menu();
         } else if (select == 1) {
-            // Menampilkan data restaurant
+            // Menampilkan data restoran
             Data.showRestaurant();
         } else {
-            // Meminta input ID restaurant yang akan dihapus
+            // Meminta input ID restoran yang akan dihapus
             App.clearScreen();
-            System.out.println(App.BOLD + "\nHapus Restaurant" + App.NORMAL);
+            System.out.println(App.BOLD + "\nHapus Restoran" + App.NORMAL);
             System.out.println("---------------");
-            System.out.println("Masukkan ID restaurant untuk menghapus");
+            System.out.println("Masukkan ID restoran untuk menghapus");
             System.out.print("*(0 untuk kembali ke menu)\n> ");
             int idRestaurant = Input.getInteger(0, Data.getRestaurants().size());
 
             if (idRestaurant == 0) {
                 menu();
+                return;
             }
-            
+
             // Mengonfirmasi hapus data
-            System.out.printf(App.BOLD + "Hapus %s-%s\n" + App.NORMAL, Data.getRestaurants().get(idRestaurant - 1).getName(), Data.getRestaurants().get(idRestaurant - 1).getAddress());
+            System.out.printf(App.BOLD + "Hapus %s-%s\n" + App.NORMAL,
+                    Data.getRestaurants().get(idRestaurant - 1).getName(),
+                    Data.getRestaurants().get(idRestaurant - 1).getAddress());
             System.out.print("Masukkan 1 untuk hapus dan 0 untuk kembali ke menu\n> ");
             int confirm = Input.getInteger(0, 1);
 
             if (confirm == 0) {
                 menu();
+                return;
             } else {
                 Data.removeRestaurant(idRestaurant - 1);
+                return;
             }
         }
     }

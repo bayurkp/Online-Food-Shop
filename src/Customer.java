@@ -1,13 +1,13 @@
 public class Customer {
-    private static String custUsername = "customer";
-    private static String custPass = "customer";
+    private static String username = "customer";
+    private static String password = "customer";
 
-    public static String getCustUsername() {
-        return custUsername;
+    public static String getUsername() {
+        return username;
     }
 
-    public static String getCustPass() {
-        return custPass;
+    public static String getPassword() {
+        return password;
     }
 
     // Method menu untuk customer
@@ -15,7 +15,7 @@ public class Customer {
         App.clearScreen();
         System.out.println(App.BOLD + "\nSelamat datang, Customer!" + App.NORMAL);
         System.out.println("---------------");
-        System.out.println("1. Lihat restaurant");
+        System.out.println("1. Lihat restoran");
         System.out.println("2. Tambah pesanan");
         System.out.println("3. Lihat pesanan");
         System.out.println("4. Hapus pesanan");
@@ -36,10 +36,10 @@ public class Customer {
                 Data.showOrder();
                 break;
             case 4:
-                // removeOrder();
+                removeOrder();
                 break;
             case 5:
-                // payOrder();
+                payOrder();
                 break;
             case 0:
                 App.login();
@@ -207,7 +207,7 @@ public class Customer {
         App.clearScreen();
         System.out.println(App.BOLD + "\nNota Pesanan" + App.NORMAL);
         System.out.println("---------------");
-        System.out.printf(App.BOLD + "\nUsername : %s\n" + App.NORMAL, Customer.getCustUsername());
+        System.out.printf(App.BOLD + "\nUsername : %s\n" + App.NORMAL, Customer.getUsername());
         Double totalPayment = Data.showOrder();
         if (totalPayment == 0.0) {
             return;
@@ -227,19 +227,5 @@ public class Customer {
         menu();
         return;
 
-    }
-
-    public static void main(String[] args) {
-        Restaurant a = new Restaurant("1", "1");
-        // Restaurant b = new Restaurant("2", "2");
-        // Restaurant c = new Restaurant("3", "3");
-        Data.addRestaurants(a);
-        Data.getRestaurants().get(0).addFood("tes1", "2000.01");
-        Data.getRestaurants().get(0).addFood("tes2", "2000.02");
-        Data.getRestaurants().get(0).addFood("tes3", "2000.03");
-        // Data.addRestaurants(b);
-        // Data.addRestaurants(c);
-        addOrder();
-        Data.showOrder();
     }
 }

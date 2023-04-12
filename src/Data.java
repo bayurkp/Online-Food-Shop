@@ -1,13 +1,13 @@
 import java.util.*;
 
 public class Data {
-    // Array list untuk menyimpan data restaurant
+    // Array list untuk menyimpan data restoran
     private static ArrayList<Restaurant> restaurants = new ArrayList<>();
 
-    // Array list untuk menyimpan data pemesanan
+    // Array list untuk menyimpan data restoran
     private static ArrayList<Order> orders = new ArrayList<>();
 
-    // Method untuk menampilkan data restaruant
+    // Method untuk menampilkan data restoran
     public static int showRestaurant() {
         App.clearScreen();
         System.out.println(App.BOLD + "\nRestaurant" + App.NORMAL);
@@ -15,13 +15,13 @@ public class Data {
 
         // Jika belum ada restaruant yang ditambahkan maka akan tampil teks berikut
         if (restaurants.size() == 0) {
-            System.out.println("Tidak ada restaurant teregistrasi.");
-            System.out.print("*(Tekan enter untuk melanjutkan....)");
+            System.out.println("Tidak ada restoran teregistrasi.");
+            System.out.print("*(Masukkan apapun untuk melanjutkan....)");
             Input.getAnyKey();
             return 0;
         }
 
-        // Melakukan looping untuk menampilkan daftar restaurant yang ditambahkan
+        // Melakukan looping untuk menampilkan daftar restoran yang ditambahkan
         for (int i = 0; i < restaurants.size(); i++) {
             String restaurantName = restaurants.get(i).getName();
             String restaurantAddress = restaurants.get(i).getAddress();
@@ -30,7 +30,7 @@ public class Data {
 
         // Menerima input untuk memilih detail menu dari restaurant dengan ID yang
         // diinput
-        System.out.println("Masukkan ID restaurant untuk detail menu");
+        System.out.println("Masukkan ID restoran untuk detail menu. (ex: 1)");
         System.out.print("*(masukkan 0 untuk kembali)\n> ");
         int idRestaurant = 0;
         do {
@@ -48,7 +48,7 @@ public class Data {
         foods = restaurants.get(idRestaurant - 1).getFoods();
         drinks = restaurants.get(idRestaurant - 1).getDrinks();
 
-        // Menampilkan daftar menu makanan dari restaurant yang dipilih
+        // Menampilkan daftar menu makanan dari restoran yang dipilih
         App.clearScreen();
         System.out.printf(App.BOLD + "\n%s-%s" + App.NORMAL, restaurants.get(idRestaurant - 1).getName(),
                 restaurants.get(idRestaurant - 1).getAddress());
@@ -62,7 +62,7 @@ public class Data {
             }
         }
 
-        // Menampilkan daftar menu minuman dari restaurant yang dipilih
+        // Menampilkan daftar menu minuman dari restoran yang dipilih
         System.out.println(App.BOLD + "\nMenu Minuman" + App.NORMAL);
         System.out.println("---------------");
         if (drinks.size() == 0) {

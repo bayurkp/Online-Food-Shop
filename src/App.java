@@ -62,9 +62,9 @@ public class App {
         System.out.print("Password\n> ");
         String password = Input.getPassword();
 
-        if (username.equals(Admin.getAdminUsername()) && password.equals(Admin.getAdminPass())) {
+        if (username.equals(Admin.getUsername()) && password.equals(Admin.getPassword())) {
             Admin.menu();
-        } else if (username.equals(Customer.getCustUsername()) && password.equals(Customer.getCustPass())) {
+        } else if (username.equals(Customer.getUsername()) && password.equals(Customer.getPassword())) {
             Customer.menu();
         } else {
             login();
@@ -73,10 +73,5 @@ public class App {
 
     public static void main(String[] args) {
         intro();
-        // Data.addRestaurant();
-        // System.out.println(Data.getRestaurants().get(0).getName());
-        // System.out.println(Data.getRestaurants().get(0).getAddress());
-        // System.out.println(Data.getRestaurants().get(0).getFoods());
-        // System.out.println(Data.getRestaurants().get(0).getDrinks());
     }
 }
