@@ -1,5 +1,3 @@
-// import java.util.*;
-
 public class Admin {
     private static String username = "admin";
     private static String password = "admin";
@@ -49,12 +47,22 @@ public class Admin {
         System.out.println(App.BOLD + "\nTambah Restoran" + App.NORMAL);
         System.out.println("---------------");
 
-        System.out.print("Masukkan nama restoran\n> ");
+        System.out.println("Masukkan nama restoran.");
+        System.out.print("*(Masukkan 0 untuk kembali)\n> ");
         String restaurantName = Input.getString();
+        if (restaurantName.equals("0")) {
+            menu();
+            return;
+        }
         restaurantName = App.capitalizeWord(restaurantName);
 
-        System.out.print("Masukkan alamat restoran\n> ");
+        System.out.println("Masukkan alamat restoran.");
+        System.out.print("*(Masukkan 0 untuk kembali)\n> ");
         String restaurantAddress = Input.getString();
+        if (restaurantAddress.equals("0")) {
+            menu();
+            return;
+        }
         restaurantAddress = App.capitalizeWord(restaurantAddress);
         App.clearScreen();
 
@@ -73,6 +81,7 @@ public class Admin {
 
             if (select == 0) {
                 addRestaurant();
+                return;
             }
 
             System.out.print("Masukkan nama menu\n> ");
@@ -96,7 +105,7 @@ public class Admin {
         } while (confirm != 0);
 
         Data.addRestaurants(restaurant);
-        System.out.println("Pesanan berhasil ditambahkan.");
+        System.out.println("Restoran dan menu berhasil ditambahkan.");
         System.out.print("*(Masukkan apapun untuk melanjutkan)");
         Input.getAnyKey();
     }

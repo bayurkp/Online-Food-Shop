@@ -131,6 +131,7 @@ public class Customer {
             System.out.println("\n1. Tambah pesanan");
             System.out.println("2. Lihat restoran lainnya");
             System.out.println("0. Kembali ke menu utama");
+            System.out.print("*(Mohon masukkan kode angka untuk melanjutkan)\n> ");
 
             int again = Input.getInteger(0, 2);
             switch (again) {
