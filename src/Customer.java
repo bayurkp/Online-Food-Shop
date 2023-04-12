@@ -194,7 +194,11 @@ public class Customer {
                 return;
             } else {
                 Data.removeOrder(idOrder - 1);
-                System.out.println("Data berhasil ");
+                System.out.println("Data berhasil dihapus.");
+                System.out.print("*(Masukkan apapun untuk kembali)");
+                Input.getAnyKey();
+                menu();
+                return;
             }
         }
     }
