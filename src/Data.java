@@ -91,7 +91,6 @@ public class Data {
     }
 
     public static void showOrder() {
-        App.clearScreen();
         System.out.println(App.BOLD + "\nPesanan" + App.NORMAL);
         System.out.println("---------------");
 
@@ -103,14 +102,8 @@ public class Data {
         }
 
         int id = 1;
-        double totalOrderListPrice = 0.0;
+        double totalPayment = 0.0;
         for (Order order : orders) {
-            Double totalOrderPrice = 0.0;
-            if (order.getDistance() <= 5) {
-                totalOrderPrice = order.getMenuPrice() * order.getQuantity() + 1500 * 5;
-            } else {
-                totalOrderPrice = order.getMenuPrice() * order.getQuantity() + 1500 * order.getDistance();
-            }
             System.out.printf("%d. %s-%s\t\t : %s\t\tRp. %.2f %dx \t\t : Rp. %.2f\n",
                     id,
                     order.getResaturantName(),
@@ -118,11 +111,13 @@ public class Data {
                     order.getMenuName(),
                     order.getMenuPrice(),
                     order.getQuantity(),
-                    totalOrderPrice);
-            totalOrderListPrice += totalOrderPrice;
+                    order.getTotalPrice());
+            totalPayment += order.getTotalPrice();
             id++;
         }
-        System.out.printf("%s\nTotal : Rp. %.2f%s\n", App.BOLD, totalOrderListPrice, App.NORMAL);
+        System.out.printf("%s\nTotal : Rp. %.2f%s\n", App.BOLD, totalPayment, App.NORMAL);
+        System.out.print("\n*(Masukkan apapun untuk lanjutkan)");
+        Input.getAnyKey();
     }
 
     public static ArrayList<Order> getOrders() {
