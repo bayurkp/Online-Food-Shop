@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Input {
     private static final Scanner sc = new Scanner(System.in);
+
     public static int getInteger() {
         int num;
         while (true) {
@@ -74,7 +75,7 @@ public class Input {
 
     public static String getPassword() {
         Console console = System.console();
-        String password = String.valueOf(console.readPassword());      
+        String password = String.valueOf(console.readPassword());
 
         return password;
     }
@@ -95,10 +96,4 @@ public class Input {
     public static void getAnyKey() {
         sc.nextLine();
     }
-
-    public static void main(String[] args) {
-        String test = getString();
-        System.out.println(test);
-    }
 }
-
