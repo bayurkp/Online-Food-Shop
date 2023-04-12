@@ -72,7 +72,7 @@ public class Customer {
                     menu();
                     return;
                 } else {
-                    if (idMenuValidation(idMenu)) {
+                    if (idMenuValidation(idRestaurant, idMenu)) {
                         idMenu = idMenu.replace("\\s", "");
                         numberMenu = Integer.parseInt(idMenu.split("-")[0]);
                         categoryMenu = idMenu.split("-")[1].toUpperCase();
@@ -148,15 +148,27 @@ public class Customer {
 
     }
 
-    public static boolean idMenuValidation(String idMenu) {
+    public static boolean idMenuValidation(int idRestaurant, String idMenu) {
         idMenu = idMenu.replaceAll("\\s", "");
         String[] parseIdMenu = idMenu.split("-");
         if (parseIdMenu.length == 2) {
             try {
-                Integer.parseInt(parseIdMenu[0]);
+                int numberMenu = Integer.parseInt(parseIdMenu[0]);
                 parseIdMenu[1] = parseIdMenu[1].toUpperCase();
-                if (parseIdMenu[1].equals("D") || parseIdMenu[1].equals("F")) {
-                    return true;
+                if (parseIdMenu[1].equals("F")) {
+                    if (numberMenu > Data.getRestaurants().get(idRestaurant - 1).getFoods().size()) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                } else if (parseIdMenu[1].equals("D")) {
+                    if (numberMenu > Data.getRestaurants().get(idRestaurant - 1).getDrinks().size()) {
+                        return false;
+                    } else {
+                        return true;
+                    }
+                } else {
+                    return false;
                 }
             } catch (NumberFormatException e) {
                 return false;
