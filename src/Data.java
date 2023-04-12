@@ -90,7 +90,7 @@ public class Data {
         restaurants.remove(idRestaurant);
     }
 
-    public static void showOrder() {
+    public static double showOrder() {
         System.out.println(App.BOLD + "\nPesanan" + App.NORMAL);
         System.out.println("---------------");
 
@@ -98,7 +98,7 @@ public class Data {
             System.out.println("Tidak ada pesanan teregistrasi.");
             System.out.print("*(Tekan enter untuk melanjutkan....)");
             Input.getAnyKey();
-            return;
+            return 0.0;
         }
 
         int id = 1;
@@ -118,6 +118,7 @@ public class Data {
         System.out.printf("%s\nTotal : Rp. %.2f%s\n", App.BOLD, totalPayment, App.NORMAL);
         System.out.print("\n*(Masukkan apapun untuk lanjutkan)");
         Input.getAnyKey();
+        return totalPayment;
     }
 
     public static ArrayList<Order> getOrders() {
