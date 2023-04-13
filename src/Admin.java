@@ -1,11 +1,15 @@
 public class Admin {
+    // Variabel username untuk admin
     private static String username = "admin";
+    // Variabel password untuk admin
     private static String password = "admin";
 
+    // Getter username
     public static String getUsername() {
         return username;
     }
 
+    // Getter password
     public static String getPassword() {
         return password;
     }
@@ -20,9 +24,11 @@ public class Admin {
         System.out.println("3. Hapus restoran");
         System.out.println("0. Kembali ke menu Login");
 
+        // Input pilihan
         System.out.print("*(Mohon masukkan kode angka untuk melanjutkan)\n> ");
         int select = Input.getInteger(0, 3);
 
+        // Jalankan menu yang dipilih
         switch (select) {
             case 1:
                 Data.showRestaurant();
@@ -38,6 +44,7 @@ public class Admin {
                 return;
         }
 
+        // Kembali ke menu
         menu();
     }
 
@@ -47,6 +54,7 @@ public class Admin {
         System.out.println(App.BOLD + "\nTambah Restoran" + App.NORMAL);
         System.out.println("---------------");
 
+        // Input nama restoran
         System.out.println("Masukkan nama restoran.");
         System.out.print("*(Masukkan 0 untuk kembali)\n> ");
         String restaurantName = Input.getString();
@@ -54,8 +62,11 @@ public class Admin {
             menu();
             return;
         }
+
+        // Mengubah format nama restoran yang diinput menjadi Capitalize Each Word
         restaurantName = App.capitalizeWord(restaurantName);
 
+        // Input alamat restoran
         System.out.println("Masukkan alamat restoran.");
         System.out.print("*(Masukkan 0 untuk kembali)\n> ");
         String restaurantAddress = Input.getString();
@@ -63,10 +74,15 @@ public class Admin {
             menu();
             return;
         }
+
+        // Mengubah format alamat restoran yang diinput menjadi Capitalize Each Word
         restaurantAddress = App.capitalizeWord(restaurantAddress);
         App.clearScreen();
 
+        // Instansiasi objek restaurant
         Restaurant restaurant = new Restaurant(restaurantName, restaurantAddress);
+
+        // Looping untuk input menu makanan dan minuman di restoran
         int select = 0;
         int confirm = 0;
         do {
@@ -104,6 +120,7 @@ public class Admin {
             confirm = Input.getInteger(0, 1);
         } while (confirm != 0);
 
+        // Menambahkan data objek restoran ke ArrayList pada class Data
         Data.addRestaurants(restaurant);
         System.out.println("Restoran dan menu berhasil ditambahkan.");
         System.out.print("*(Masukkan apapun untuk melanjutkan)");
@@ -151,7 +168,7 @@ public class Admin {
                 return;
             }
 
-            // Mengonfirmasi hapus data
+            // Mengonfirmasi penghapusan data restoran
             System.out.printf(App.BOLD + "Hapus %s-%s\n" + App.NORMAL,
                     Data.getRestaurants().get(idRestaurant - 1).getName(),
                     Data.getRestaurants().get(idRestaurant - 1).getAddress());
@@ -162,6 +179,7 @@ public class Admin {
                 menu();
                 return;
             } else {
+                // Hapus data restoran
                 Data.removeRestaurant(idRestaurant - 1);
                 return;
             }

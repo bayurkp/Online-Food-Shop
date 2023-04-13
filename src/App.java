@@ -1,7 +1,9 @@
 import java.util.Random;
 
 public class App {
+    // String untuk format bold pada text
     public static final String NORMAL = "\033[0;0m";
+    // String untuk format default pada text
     public static final String BOLD = "\033[0;1m";
 
     // method untuk membersihkan teks pada terminal
@@ -12,6 +14,7 @@ public class App {
 
     // Method untuk mengubah teks menjadi format capitalize each word
     public static String capitalizeWord(String text) {
+        // Menginisialisasi array character baru dengan nilai lowercase dari argumen
         char[] chars = text.toLowerCase().toCharArray();
         boolean found = false;
         for (int i = 0; i < chars.length; i++) {
@@ -57,20 +60,29 @@ public class App {
         clearScreen();
         System.out.println(BOLD + "\nLogin" + NORMAL);
         System.out.println("---------------");
+
+        // Input username
         System.out.print("Username\n> ");
         String username = Input.getString();
+
+        // Input password
         System.out.print("Password\n> ");
         String password = Input.getPassword();
 
+        // Pengecekan kredensial
         if (username.equals(Admin.getUsername()) && password.equals(Admin.getPassword())) {
             Admin.menu();
+            return;
         } else if (username.equals(Customer.getUsername()) && password.equals(Customer.getPassword())) {
             Customer.menu();
+            return;
         } else {
             login();
+            return;
         }
     }
 
+    // Method main
     public static void main(String[] args) {
         intro();
     }
