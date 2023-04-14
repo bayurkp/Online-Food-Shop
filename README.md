@@ -7,6 +7,7 @@ Oleh Bayu Rizky Kurnia Pratama - 2205551070
 -   [Online Foodshop](#online-foodshop)
     -   [Daftar Isi](#daftar-isi)
     -   [Pengenalan](#pengenalan)
+    -   [UML Class Diagram](#uml-class-diagram)
     -   [Batasan Program](#batasan-program)
     -   [Alat](#alat)
         -   [Visual Studio Code](#visual-studio-code)
@@ -18,13 +19,18 @@ Oleh Bayu Rizky Kurnia Pratama - 2205551070
         -   [Kredensial](#kredensial)
         -   [Admin](#admin)
         -   [Customer](#customer)
-    -   [UML Class Diagram](#uml-class-diagram)
     -   [Tampilan Program](#tampilan-program)
     -   [Penutup](#penutup)
 
 ## Pengenalan
 
 Program pembelian makanan _online_ berbasis CLI atau _Command Line Interface_. Program ini dibangun dengan bahasa pemrograman Java. Java adalah salah satu bahasa pemrograman populer yang digunakan untuk mengembangkan aplikasi _mobile_, _desktop_, hingga website. Kepopulerannya dibuktikan dari jumlah pengembang yang menggunakan bahasa ini, yaitu sekitar 10 juta pengembang dari seluruh dunia.
+
+## UML Class Diagram
+
+UML _Class Diagram_ adalah jenis diagram yang digunakan dalam pengembangan program untuk menggambarkan struktur sistem berorientasi objek. _Class diagram_ menggambarkan kelas, objek, atribut, metode, hubungan antar kelas, dan interaksi antara objek. Berikut adalah UML _Class Diagram_ dari program '**Online Food Shop**':
+
+![UML Online Food Shop](img/UML%20Online%20Food%20Shop.jpg "UML Online Food Shop")
 
 ## Batasan Program
 
@@ -90,12 +96,6 @@ Password : `admin`
 
 Username : `customer`
 Password : `customer`
-
-## UML Class Diagram
-
-UML _Class Diagram_ adalah jenis diagram yang digunakan dalam pengembangan program untuk menggambarkan struktur sistem berorientasi objek. _Class diagram_ menggambarkan kelas, objek, atribut, metode, hubungan antar kelas, dan interaksi antara objek. Berikut adalah UML _Class Diagram_ dari program "Online Food Shop".
-
-![UML]("UML")
 
 ## Tampilan Program
 
