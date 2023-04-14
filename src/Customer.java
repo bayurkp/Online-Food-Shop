@@ -35,19 +35,20 @@ public class Customer {
         switch (select) {
             case 1:
                 Data.showRestaurant();
-                return;
+                break;
             case 2:
                 addOrder();
-                return;
+                break;
             case 3:
+                App.clearScreen();
                 Data.showOrder();
-                return;
+                break;
             case 4:
                 removeOrder();
-                return;
+                break;
             case 5:
                 payOrder();
-                return;
+                break;
             case 0:
                 App.login();
                 return;
@@ -55,6 +56,7 @@ public class Customer {
 
         // Kembali ke menu
         menu();
+        return;
     }
 
     public static void addOrder() {
@@ -266,7 +268,6 @@ public class Customer {
         Data.removeAllOrders();
         System.out.println(
                 App.BOLD + "Terima kasih telah memesan.\nMohon tunggu sampai pesanan Anda sampai." + App.NORMAL);
-
         menu();
         return;
     }

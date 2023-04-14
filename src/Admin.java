@@ -125,6 +125,7 @@ public class Admin {
         System.out.println("Restoran dan menu berhasil ditambahkan.");
         System.out.print("*(Masukkan apapun untuk melanjutkan)");
         Input.getAnyKey();
+        return;
     }
 
     // Method untuk mengahpus data restoran
@@ -136,6 +137,7 @@ public class Admin {
             System.out.print("*(Tekan enter untuk melanjutkan....)");
             Input.getAnyKey();
             menu();
+            return;
         }
 
         // Menampilkan menu hapus restoran
@@ -151,9 +153,11 @@ public class Admin {
         if (select == 0) {
             // Kembali ke menu admin
             menu();
+            return;
         } else if (select == 1) {
             // Menampilkan data restoran
             Data.showRestaurant();
+            return;
         } else {
             // Meminta input ID restoran yang akan dihapus
             App.clearScreen();
@@ -181,6 +185,9 @@ public class Admin {
             } else {
                 // Hapus data restoran
                 Data.removeRestaurant(idRestaurant - 1);
+                System.out.println("Restoran berhasil dihapus.");
+                System.out.print("*(Masukkan apapun untuk melanjutkan)");
+                Input.getAnyKey();
                 return;
             }
         }

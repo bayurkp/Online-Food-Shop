@@ -10,7 +10,7 @@ public class Data {
     // Method untuk menampilkan data restoran
     public static int showRestaurant() {
         App.clearScreen();
-        System.out.println(App.BOLD + "\nRestaurant" + App.NORMAL);
+        System.out.println(App.BOLD + "\nRestoran" + App.NORMAL);
         System.out.println("---------------");
 
         // Jika belum ada restaruant yang ditambahkan maka akan tampil teks berikut
