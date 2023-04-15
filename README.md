@@ -73,13 +73,14 @@ Untuk menjalankan program ini Anda dapat melakukan langkah-langkah berikut:
 
 #### Download File
 
-Silahkan _download_ file _executable_ berekstensi JAR dari program Online Food Shop lewat tautan berikut:
+Silahkan _download_ file _executable_ EXE atau JAR dari program Online Food Shop lewat tautan berikut:
 
-[Download Executeable File](https://github.com/bayurkp/Online-Food-Shop/raw/main/Online-Food-Shop.jar)
+[Download EXE File](https://github.com/bayurkp/Online-Food-Shop/raw/main/OnlineFoodshop.exe)
+[Download JAR File](https://github.com/bayurkp/Online-Food-Shop/raw/main/OnlineFoodshop.jar)
 
 #### Command
 
-Kemudian jalankan file JAR tersebut dengan _command_ berikut:
+Untuk menjalankan file JAR tersebut dengan _command_ berikut:
 
 `$ java -jar Online-Food-Shop.jar`
 
